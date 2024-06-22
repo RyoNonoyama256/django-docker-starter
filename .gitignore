@@ -1,0 +1,29 @@
+# Python related
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+
+# Django related
+*.log
+*.pot
+*.pyc
+*.mo
+*.sqlite3
+
+# Docker related
+*.log
+*.pid
+*.seed
+*.pid.lock
+.env
+
+# IDE related
+.vscode/
+.idea/
+*.swp
+
+# System related
+.DS_Store
+Thumbs.db

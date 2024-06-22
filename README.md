@@ -95,3 +95,107 @@ DB_HOST=db
 DB_PORT=5000
 PROJECT_NAME=yourproject
 ```
+
+### 新しいDjangoプロジェクトを作成/そのプロジェクトを別の新規リポジトリで管理する方法
+
+1. **Django Docker Starterリポジトリをクローン**
+   まず、Django Docker Starterリポジトリをローカルにクローンします。
+
+   ```bash
+   git clone https://github.com/yourusername/django-docker-starter.git new-django-project
+   cd new-django-project
+   ```
+
+2. **新しいリポジトリを作成**
+   GitHub上で新しいリポジトリを作成します（例: `new-django-repo`）。
+
+3. **新しいリポジトリをローカルリポジトリに設定**
+   ローカルリポジトリのリモートを新しいリポジトリに設定します。
+
+   ```bash
+   git remote remove origin
+   git remote add origin https://github.com/yourusername/new-django-repo.git
+   ```
+
+4. **プロジェクト名の設定**
+   `.env`ファイルを作成し、新しいプロジェクト名などの環境変数を設定します。
+
+   ```bash
+   cp .env.example .env
+   # .envファイルを編集して、必要な環境変数を設定します
+   ```
+
+5. **Dockerコンテナのビルドと起動**
+   Dockerコンテナをビルドして起動します。
+
+   ```bash
+   docker-compose up --build
+   ```
+
+6. **新しいDjangoプロジェクトの作成**
+   新しいDjangoプロジェクトを作成します（例: `mynewproject`）。
+
+   ```bash
+   docker-compose exec web django-admin startproject mynewproject /app/src/mynewproject
+   ```
+
+7. **プロジェクトの初期設定**
+   `settings.py`などの設定ファイルを編集し、必要な設定を行います。
+
+8. **初期コミットとプッシュ**
+   変更をコミットし、新しいリポジトリにプッシュします。
+
+   ```bash
+   git add .
+   git commit -m "Initial commit with Django Docker setup"
+   git push -u origin main
+   ```
+
+### 実例
+
+#### 1. Django Docker Starterリポジトリをクローン
+
+```bash
+git clone https://github.com/yourusername/django-docker-starter.git new-django-project
+cd new-django-project
+```
+
+#### 2. 新しいリポジトリを作成（例: `new-django-repo`）
+
+#### 3. 新しいリポジトリをローカルリポジトリに設定
+
+```bash
+git remote remove origin
+git remote add origin https://github.com/yourusername/new-django-repo.git
+```
+
+#### 4. プロジェクト名の設定
+
+```bash
+cp .env.example .env
+# .envファイルを編集して、必要な環境変数を設定します
+```
+
+#### 5. Dockerコンテナのビルドと起動
+
+```bash
+docker-compose up --build
+```
+
+#### 6. 新しいDjangoプロジェクトの作成
+
+```bash
+docker-compose exec web django-admin startproject mynewproject /app/src/mynewproject
+```
+
+#### 7. プロジェクトの初期設定
+
+`settings.py`などの設定ファイルを編集し、必要な設定を行います。
+
+#### 8. 初期コミットとプッシュ
+
+```bash
+git add .
+git commit -m "Initial commit with Django Docker setup"
+git push -u origin main
+```
