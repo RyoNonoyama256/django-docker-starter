@@ -7,7 +7,7 @@ PROJECT_DIR="/app"
 PROJECT_NAME=${PROJECT_NAME:-myproject}
 
 # プロジェクトディレクトリが存在しない場合に作成する
-if [ ! -d "$PROJECT_DIR/blogproject" ]; then
+if [ ! -d "$PROJECT_DIR/$PROJECT_NAME" ]; then
   mkdir -p "./$PROJECT_NAME"
   cd "./$PROJECT_NAME"
   django-admin startproject $PROJECT_NAME .
